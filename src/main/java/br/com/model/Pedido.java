@@ -1,9 +1,31 @@
 package br.com.model;
 
-public class Pedido {
+import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
+@Entity
+public class Pedido implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String descricao;
+	
+	@ManyToMany
+	 @JoinTable(name = "produto_pedido", 
+	 joinColumns = @JoinColumn(name = "produto_id"), 
+	 inverseJoinColumns = @JoinColumn(name = "pedido_id"))
+	private List<Produto> produtos;
 
 	public Long getId() {
 		return id;
