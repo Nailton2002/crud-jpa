@@ -3,8 +3,7 @@
 	<persistence-unit name="crud-produto-pedido">
 	
 	<class>br.com.model.Produto</class>
-<!-- 	<class>br.com.model.Pedido</class> -->
-<!-- 	<class>br.com.model.ProdutoPedido</class> -->
+	<class>br.com.model.Pedido</class>
 	
 	<properties>
 		<!-- Dados de conexão com o banco -->
